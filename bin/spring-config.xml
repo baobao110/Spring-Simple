@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" class="Person">		
+    	<property name="age" value="22"></property>
+    	<property name="dog" ref="dog"></property>
+    </bean>
+    
+     <!--这里要特别注意spring 的使用方法 这里其实还是和其他的框架类似，
+     Spring框架的 优点就在于它是自动帮你创建对象，所以这里不需要自己手动的 创建对象
+     	这里的ref 是关联的作用,其实这就是用于后台的类的组合使用,这里用关联的形式将它set进去
+     	这里还有一点需要注意的是property name="后台的变量",这里注意虽然它是直接给变量赋值,其实必须有set方法
+     	这一点和mybatis的用法非常的相似-->
+
+    <bean id="dog" class="Dog">
+    	<property name="age" value="33"></property> 
+    </bean>
+
+
+</beans>
